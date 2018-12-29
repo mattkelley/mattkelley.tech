@@ -1,0 +1,30 @@
+language: node_js
+cache: npm
+
+script:
+  - npm test
+  - npm run build
+
+env:
+  global:
+    - AWS_ACCESS_KEY=AKIAI7RYMPK5GMWWF6HQ
+    - AWS_CLOUDFRONT_DIST_ID=E2665DR4HNCWVY
+    - secure: fHuOo/RnPHYaV41MpXb/D1MPsBer9YE+kZ9pjEh2jUN5KJsMoY/I7ySz05i1xs/YLZK7JZ+hRwydu6VYnBZpwT1iy7nE9AQ7B038fEyCkB5Eb6iGqmnolbNIuxalVOUXBx67Te8hYZPLqFMecfBkpPTBnzIgZN5B9bO0iZIEzOVhgiKKJjQThD8fWlCUtTQHX7IhamMI3Ae1BhGrbe+42xmdaBPasu54mc5y8rcAXf1WabYHOmaak8Mt8nMcFdfm87IsNAR6UZB/7370aVkmL1dKklNAfKPIQ05lPNUttdhvIhxQcdHwQA2Rajaq4icv0KQIr2AECdvY1EEoPHBQoiWTiTsqGkT/wlZEXkasfpRxyl5kZwrM3rnTuPrXwTkOiC8dBK9vuc3hSdO+zvVym7kOl0wgVkLMqQTOIFaNG68Myaxb6K+wfUI6mrMYuaT8VoT46R+BFECPF9ZP9lTXDngSrYHYqireZbcrYpu6AOuO7aOVKP/4M4LL9wOG9FhXCCt+wR9e6Belp7tp+ZAH2ctsTWpAliwXlS8807bqK/GItHAJt4MxHmov5E/+hj88zRtb+iQ6gaRnBgdl5KPggn3O9fUp0D2K+l6h1QkRV7TZtPET40oZYU3JL9B/Yg07L9wxha47ycGwR9YTVPOkTVGEeOMdtDI2AInJhuO7okw=
+
+deploy:
+  provider: s3
+  skip_cleanup: true
+  detect_encoding: true
+  access_key_id: AKIAIVB7HGMHOQYYNA2Q
+  secret_access_key:
+    secure: Ugqn0BehtEPsX89P316x0mi1C4VBgnAaFqxp53FBIxsrmZNlw4s6NDvVKg5QYjOodRXeYOdpCrQSfvFyuWfwBsH4p+dKLm3kP3ORUj0WPSpFnErK2fXd1fmB4I+GL3HD+y3frWIpb9pyyTnqMywfAavE1XvhIp8NkcXuBuZqXUjNFVQOQfe7rtSYNvSvp7sUEpD8eWey46//X+yYIXVCRMTeYn231CxKgwvad6hB03M75ORjput1DW0wp7dFYgpiAr5En7Zv/6FJ4OmtHM5UU4KXJjPHbsXQ0SU0g9iddU3CiyTPH46QjB56uoeh3ho1iJTxicseuohjazI3mvJK2TLbJr6N87KyH9eKCgOlIAzyJ7uhOGAijN7iLkDVWMkeyK5GfCDNXP9kDf1BmAZiQd7Jkm/MZi29dR51t7qWmNLqmSpH4OjPhfXW2eKXZ+h/49G6s4DcogxxaNAgflj5XKnZKBBJaShZHpnrRTrszI0EF8QBMPfouwue/bpAalm+J3PRUSyNPUE4qmVaPKCIifq8rRrFI9VoYGaYmwFSpbrHb7l2Ki11FEmUH8DFbJLSfEPvImSUWAnxWup0m8do00XKtnDyHoDEA6Mq3XDSwcp5uMJgkjEOm4YPdN/bVfaTVc1jT3V9v8DdRsbw5eAEEgh4vlCYjWpJRR/zyw7wOf8=
+  bucket: mattkelley-personal
+  acl: public_read
+  region: us-east-2
+  local_dir: './build'
+  on:
+    repo: mattkelley/mattkelley.tech
+    branch: master
+
+after_deploy:
+  - npx travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET -c $AWS_CLOUDFRONT_DIST_ID -i '/index.html' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -o 'master'

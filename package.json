@@ -1,0 +1,36 @@
+{
+  "name": "mk.tech",
+  "version": "0.2.0",
+  "private": true,
+  "dependencies": {
+    "@types/jest": "23.3.10",
+    "@types/node": "10.12.18",
+    "@types/query-string": "6.1.1",
+    "@types/react": "16.7.18",
+    "@types/react-dom": "16.0.11",
+    "@types/react-helmet": "5.0.7",
+    "query-string": "6.2.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-helmet": "5.2.0",
+    "react-router-dom": "4.3.1",
+    "react-scripts": "2.1.2",
+    "travis-ci-cloudfront-invalidation": "1.1.0",
+    "typescript": "3.2.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
