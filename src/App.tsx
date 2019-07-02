@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import BlogService from './services/BlogService';
+import Blog from './services/BlogService';
+// import TravisCI from './services/TravisCIService';
 import { GhostPost } from './dto/Blog';
-
+import TravisBuild from './TravisBuild';
 // import './App.css';
 
 interface State {
@@ -17,7 +18,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    BlogService.getPosts()
+    Blog.getPosts()
       .then(data => {
         this.setState(() => ({ posts: data.posts, loading: false }));
       })
@@ -36,22 +37,28 @@ class App extends Component {
           <link rel="canonical" href="https://mattkelley.tech" />
         </Helmet>
         <header className="App-header">
-          <h2 className="name">Matt Kelley</h2>
+          <div className="name-wrapper">
+            <h2 className="name">Matt Kelley</h2>
+          </div>
           <p>
-            I am a software Engineer working at&nbsp;
+            I am a software engineer working at&nbsp;
             <a className="App-link" href="https://spanning.com" target="_blank" rel="noopener noreferrer">
               Spanning
             </a>
+            &nbsp;on the Office 365 backup team. Ut rhoncus porta est eu maximus. Maecenas in tempor enim. Vestibulum
+            blandit, nibh eget consectetur congue, lectus diam venenatis dolor, vitae commodo ex ipsum eu leo. Cras
+            iaculis dolor vel felis porttitor, ut fermentum sapien eleifend.
           </p>
         </header>
-        {this.state.posts.map(post => {
+        <TravisBuild />
+        {/* {this.state.posts.map(post => {
           return (
             <div key={post.id}>
               <h3>{post.title}</h3>
               <p>{post.plaintext}</p>
             </div>
           );
-        })}
+        })} */}
       </div>
     );
   }

@@ -3,8 +3,6 @@ body {
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
     'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -14,17 +12,29 @@ code {
 .name {
 }
 
+.name-wrapper {
+}
+
+.App {
+  width: 800px;
+  margin: 0 auto;
+}
+
+p {
+  line-height: 1.55;
+  font-size: 1.15rem;
+  font-family: 'Libre Franklin', sans-serif;
+  color: #526173;
+  -webkit-font-smoothing: antialiased;
+}
 .name {
-  font-family: 'Istok Web', sans-serif;
-  /* font-family: 'Staatliches', cursive; */
-  font-size: 2rem;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 4rem;
   font-weight: normal;
-  font-style: italic;
+
   margin: 0;
   line-height: 1;
-  color: black;
-  text-transform: uppercase;
-  /* max-width: 300px; */
+  color: #3a3a3a;
   margin: 60px 0;
   text-align: center;
 }
