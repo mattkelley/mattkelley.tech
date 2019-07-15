@@ -3,6 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
+    "@types/humanize-duration": "3.18.0",
     "@types/jest": "23.3.10",
     "@types/node": "10.12.18",
     "@types/query-string": "6.1.1",
