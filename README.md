@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.com/mattkelley/mk.tech.svg?branch=master)](https://travis-ci.com/mattkelley/mk.tech)
-
+[![Build Status](https://travis-ci.com/mattkelley/mattkelley.tech.svg?branch=master)](https://travis-ci.com/mattkelley/mattkelley.tech)
 # mattkelley.tech
 a little self-promotion
 
