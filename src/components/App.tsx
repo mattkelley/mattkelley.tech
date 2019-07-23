@@ -27,8 +27,14 @@ class App extends Component {
             <a className="App-link" href="https://spanning.com" target="_blank" rel="noopener noreferrer">
               Spanning Cloud Apps
             </a>
-            &nbsp;on the Office 365 backup team. I value simple, creative solutions to complex problems. I'm inspired by
-            collaborative teammates, open communication and fast paced environments.
+            &nbsp;on the Office 365 backup team. As an experienced individual contributor I value simple, creative
+            solutions to complex problems. I'm inspired by collaborative teammates, open communication and fast paced
+            environments.
+          </p>
+          <p>
+            AFK I love to ski, go on <a href={`${process.env.PUBLIC_URL}/adventure.jpg`}>adventures</a>, take care of my{' '}
+            <a href={`${process.env.PUBLIC_URL}/plant.jpg`}>plants</a>, and hangout with my dog{' '}
+            <a href={`${process.env.PUBLIC_URL}/judy.jpg`}>Judy</a>.
           </p>
         </header>
         <GetInTouch {...{ githubUrl, linkedinUrl, emailAddress }} />
