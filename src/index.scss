@@ -1,0 +1,75 @@
+$bodyFontColor: #526173;
+$headerFontColor: #3a3a3a;
+$linkDefaultColor: #338bdc;
+$bodyFontFamily: 'Libre Franklin', sans-serif;
+$headingFontFamily: 'Source Sans Pro', sans-serif;
+
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.65;
+  color: $bodyFontColor;
+  font-family: $bodyFontFamily;
+}
+
+a {
+  color: $linkDefaultColor;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headingFontFamily;
+  font-weight: normal;
+  color: $headerFontColor;
+  -webkit-font-smoothing: antialiased;
+}
+
+h3 {
+  font-size: 1.35rem;
+  color: $bodyFontColor;
+}
+
+ul {
+  list-style: circle;
+}
+
+li {
+  font-size: 1.15rem;
+  // line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  // line-height: 1.55;
+  font-size: 1.15rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.app-header {
+  margin-bottom: 2.75rem;
+}
+
+.app-section {
+  margin-bottom: 2.75rem;
+}
+
+.name {
+  font-family: $headingFontFamily;
+  font-size: 4rem;
+  font-weight: normal;
+  margin: 0;
+  line-height: 1;
+  color: #3a3a3a;
+  margin: 60px 0;
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+language: node_js
+cache: npm
+script:
+  - npm test
+  - npm run build
+env:
+  global:
+    - AWS_ACCESS_KEY=AKIAICUMOHLMI5BBHIDQ
+    - AWS_CLOUDFRONT_DIST_ID=E2665DR4HNCWVY
+    - secure: L/ZbpX+1LvxsGPjLC7MNMfmU1NPWWvOBtFk3q850zGHgegdUPcU1o6Vx/ydsSO9HpkFQQMO4IsEG9i++2BpxFBhF/5WJIj7S6usJ2I1m8EbmjOeCIJVjcSC9pB3bqTXta9sbM9FKxAAACs79Y6WH8tVsN1XXyz4As/WZCucVmE1U6rQ+ZGfTmFIp+V2DCpX+fJas+sOg5mz83+ekfeuu1a7aaRI73ezD+kwrJ9EQBn6hXt7oM31MiBbbtrWi69ICLEGd6EMBqDJbQABRNEBrXDIe00o/zDfyMiZaFqVeJnZhCCH1hrBR2SLtWy3w+9Jl89PCiH5+BekpP83YTD4LGQXUMS8HJvKdo3hoAYVfHlZTqc42AAWeLp6evdhTijhiupOSyU4/hMxYFqCJi6aosQXEzjtkrOe8nXfA7jjMeh98FibB/eS7snQiFr5P79pyvWEZpEnhX2zlR3JzZQC3AD/SyNHfe6iFtf9o1riBClDARgAvC4x4mUYzv1Mr3OjrKDQvyPxawFoJI5Rdoh1MHHYL+V2bWUkHDTu7oy55OQspITc3T0yovSy5xiM0zNp3FEjs6Ml+yeCD6LuNhItD5C/5WLQm5OASCzrSjYEBDf3TRzzW/5+1OfC3MTlO0vKF3wUuqh0k/Cd8Kx8RAoSDPscvGPcVedYzqA4pTq/IBdQ=
+deploy:
+  provider: s3
+  access_key_id: AKIAICUMOHLMI5BBHIDQ
+  secret_access_key:
+    secure: cG5d3Qy9Bk7jcdmJX1mr2NpqqYd5Ej6iFxh0ZlT5UIO/q0+E4OWpZcCZ0wkt4bd+3IzvdOMtI7p+oaqfY6IrFuVACL0B4Ah28EH6QQ0q6qcwnyc+6OLYAfbvR9tLUfKP38HFbMghfMz3PAG0rb7eHUcCenOZLdF0NRw2TzfE5/SljN//wdHWwnsRJXcFxMU+afs/W/UDYEK74iEuKNSQ6aEQc1fAEUEsFHA21xeTByReTC5sKvlhqJaNFsTImaJI6xeixUV4/rFssJsU1le50TNzKV+cJlvX6y8YGzuerWUd1a1KBCmo+w05QbdZP51geldHTBSX5hbZTX2aamxwZk+UsNmwnmgWeg0gWjPK6ZNmSoO7StEBK5cdDmCQlcmVF5JyyOuv8nfRZ9FDl5U/B5JK0AdfbwvTAa0HfYAKwbPXE+N9N4vE7C8lYMOf9kFKMYSii7U7GokVfydyQrvq4MiC3w6NBd0ifbqKwLgkk5k98t5OQqmg1n8h9VR8Z2xcYwGb6bfSfMcWsmTPnYI1K/akznS6r52ZSbKkxEaV9ocNsxwAQdKln+f8sCHPZjwrnzOT+XLBTLeYMJPZM1Wsb5Q0ncYFq61kwutxBwyChyGoeOdtppFpLJQF/TtyBnxBw1Z1PgE3iGjfbybu5jUAJHMIXSpD4CGUINN5CG4Ym74=
+  bucket: mattkelley-personal
+  acl: public_read
+  region: us-east-2
+  local_dir: './build'
+  on:
+    repo: mattkelley/mattkelley.tech
+    branch: master
+after_deploy:
+  - npx travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET_KEY -c $AWS_CLOUDFRONT_DIST_ID -i '/index.html' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST -o 'master'
