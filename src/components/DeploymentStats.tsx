@@ -67,7 +67,7 @@ export default class TravisBuild extends Component<Props, State> {
     const buildUrl = `https://travis-ci.com/mattkelley/mattkelley.tech/builds/${buildId}`;
 
     return (
-      <section className="app-section">
+      <section>
         <h3>And to get a little nerdy 👩‍💻</h3>
         <p>
           This application was tested, built and deployed from commit <a href={githubUrl}>{buildSha}</a>. It was
