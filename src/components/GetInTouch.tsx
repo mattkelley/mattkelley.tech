@@ -10,7 +10,7 @@ export default function GetInTouch(props: Props) {
   const { linkedinUrl, githubUrl, emailAddress } = props;
 
   return (
-    <section className="app-section">
+    <section className="mb-5">
       <h3>Get in touch!</h3>
       <ul>
         <li>
