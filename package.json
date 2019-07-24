@@ -1,6 +1,6 @@
 {
-  "name": "mk.tech",
-  "version": "0.2.0",
+  "name": "mattkelley.tech",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@types/humanize-duration": "3.18.0",
@@ -17,7 +17,6 @@
     "query-string": "6.2.0",
     "react": "16.7.0",
     "react-dom": "16.7.0",
-    "react-helmet": "5.2.0",
     "react-router-dom": "4.3.1",
     "react-scripts": "2.1.3",
     "travis-ci-cloudfront-invalidation": "1.1.0",

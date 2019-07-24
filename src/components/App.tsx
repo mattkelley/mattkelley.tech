@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Helmet } from 'react-helmet';
 import DeploymentStats from './DeploymentStats';
 import GetInTouch from './GetInTouch';
 
@@ -13,11 +12,6 @@ class App extends Component {
   render() {
     return (
       <div className="container-fluid">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Matt Kelley | Software Engineer</title>
-          <link rel="canonical" href={publicUrl} />
-        </Helmet>
         <div className="row">
           <header className="col">
             <div className="page-content mb-5">
